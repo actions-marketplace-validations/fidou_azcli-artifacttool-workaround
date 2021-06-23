@@ -10,7 +10,7 @@ jobs:
       with:
         fetch-depth: '0'
       
-    - uses: ./
+    - uses: fidou/azcli-artifacttool-workaround@v1.0.1-alpha
       env:
           AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_OTA_PAT_TOKEN }}
       with:    
