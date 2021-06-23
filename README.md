@@ -8,7 +8,7 @@ Azure github action for az cli to upload/download artifacts and workaround known
 ## Example usage
 
 ```
-uses: actions/azcli-artifacttool-workaround@v1
+uses: fidou/azcli-artifacttool-workaround@v1.0.0-alpha
 env:
     AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_OTA_PAT_TOKEN }}
 with:    
