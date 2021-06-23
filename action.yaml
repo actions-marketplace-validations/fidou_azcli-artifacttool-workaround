@@ -1,0 +1,12 @@
+# action.yml
+name: 'azcli-artifacttool-workaround'
+description: 'Allows to use a preinstalled artifact tool and workaround issue on current azcli github action on alpine'
+inputs:
+  inlineScript:
+    description: 'Specify the script here'
+    required: true    
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.inlineScript }}

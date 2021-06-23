@@ -1,2 +1,17 @@
 # azcli-artifacttool-workaround
-azure github action for az cli to upload/download artifacts and workaround known issue download artifacttool on linux alpine
+azure github action for az cli to upload/download artifacts and workaround known issue download artifacttool on linux alpine. Uses the latest version of the azurecli and the latest version of the azure devops extension.
+
+## Inputs
+
+## `inlineScript`
+
+**Required** The script to be run inside by the action.
+
+## Example usage
+
+uses: actions/azcli-artifacttool-workaround@v1
+env:
+    AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_OTA_PAT_TOKEN }}
+with:    
+    inlineScript: |
+    az artifacts universal download --organization https://dev.azure.com/my-org --feed my-package-feed --name mypackage --version  *.*.* --path .
