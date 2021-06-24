@@ -10,7 +10,7 @@ Azure github action for az cli to upload/download artifacts and workaround known
 ```
 uses: fidou/azcli-artifacttool-workaround@v1.0.1-alpha-1
 env:
-    AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_OTA_PAT_TOKEN }}
+    AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_PAT_TOKEN }}
 with:    
     inlineScript: |
     az artifacts universal download --organization https://dev.azure.com/my-org --feed my-package-feed --name mypackage --version  *.*.* --path .
