@@ -9,10 +9,23 @@ jobs:
     - uses: actions/checkout@master
       with:
         fetch-depth: '0'
+
+    - name: Login to DockerHub
+      uses: docker/login-action@v1 
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    
+    - name: Build and push
+      id: docker_build
+      uses: docker/build-push-action@v2
+      with:
+        push: true
+        tags: fidou/azcli-artifacttool-workaround
       
-    - uses: fidou/azcli-artifacttool-workaround@v1.0.1-alpha-1
+    - uses: ./
       env:
-          AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_OTA_PAT_TOKEN }}
+        AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_OTA_PAT_TOKEN }}
       with:    
           inlineScript: |
             az version
