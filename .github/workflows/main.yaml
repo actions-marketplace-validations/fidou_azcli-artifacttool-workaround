@@ -1,4 +1,4 @@
-name: download artifact
+name: CI
 on:
   workflow_dispatch:
     
